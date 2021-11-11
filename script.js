@@ -1,7 +1,18 @@
 /* Trazendo o canvas para o script */
 let canvas = document.getElementById('snake');
 let context = canvas.getContext("2d");
+let txtPonto = document.getElementById('ponto');
+let txtPassos = document.getElementById('passo');
+let txtScore = document.getElementById('score');
+let txtRecord = document.getElementById('record');
 let box = 32;
+let ponto = 0;
+let passos = 0;
+let score = 0;
+let record = parseInt(sessionStorage.getItem("recordSession"));
+
+txtRecord.innerText = "Record desta Sessão de Jogo: Score =" + sessionStorage.getItem("recordSession"); 
+  
 
 /*Definindo posição da cobrinha  */
 let snake = [];
@@ -50,16 +61,42 @@ function teclaPrecionada (event){
 
 }
 
-/*voltando a cobrinha no lado oposto à saída do tabuleiro */
+function pontuar(){
+    ponto = ponto +1;
+    txtPonto.innerText = "Pontução: " + ponto;
+    comida.x = Math.floor(Math.random()*15 + 1) * box;
+    comida.y = Math.floor(Math.random()*15 +1) * box;
+}
+
+/*voltando a cobrinha no lado oposto à saída do tabuleiro/
 function atravessaParede(){
     if(snake[0].x > 15*box && direction == 'right') snake[0].x = 0;
     if(snake[0].x < 0 && direction == 'left') snake[0].x = 16*box;
     if(snake[0].y >15*box && direction == 'down') snake[0].y = 0;
     if(snake[0].y < 0 && direction == 'up') snake[0].y = 16*box; 
-}
+}*/
 
+function terminaJogo(){
+/*Parando o jogo se a cobrinha colidir com o seu corpo ou bater nas paredes*/
+    for(i = 1; i < snake.length; i++){
+        if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
+            if(record < score){
+                sessionStorage.setItem('recordSession', score); 
+            }
+            clearInterval(jogo);
+            alert("Gamer Over :(");
+        }
+    }
+    if(snake[0].x > 15*box || snake[0].x < 0 || snake[0].y >15*box || snake[0].y < 0  ){
+        if(record < score){
+            sessionStorage.setItem('recordSession', score); 
+        }
+        clearInterval(jogo);
+        alert("Gamer Over :(");
+    }
+}
 /*Função para atualizar jogo*/
-let jogo = setInterval(atualizarJogo, 100); 
+let jogo = setInterval(atualizarJogo, 150); 
 
 function atualizarJogo(){
     criarBG();
@@ -76,8 +113,28 @@ function atualizarJogo(){
     if(direction == "up") snakeY -= box;
     if(direction == "down") snakeY += box;
 
-    snake.pop();
-
+    /*Verificando o número de passos dados para calcular Score */
+    passos = passos + 1;
+    txtPassos.innerText = "Passos dados = " + passos;
+    score = parseInt((ponto/passos)*100*ponto);
+    txtScore.innerText = "Score do Jogo = " + score;
+    if(record < score){
+       txtRecord.innerText = "Record desta Sessão de Jogo: Score = " + score; 
+       
+    }else{
+        txtRecord.innerText = "Record desta Sessão de Jogo: Score = " + record;
+    }
+    
+    /*Verifica os critérios que determina o fim do jogo*/
+    terminaJogo();
+ 
+    /*Fazendo a cobrinha aumentar de tamanho ao comer e pontuar*/
+    if(snakeX != comida.x || snakeY != comida.y){
+        snake.pop();
+    }else{
+       pontuar();
+    }
+    
     let newHead = {
         x: snakeX,
         y: snakeY
@@ -85,7 +142,7 @@ function atualizarJogo(){
 
     snake.unshift(newHead);
 
-    atravessaParede();
+//atravessaParede();
 
 }
 

@@ -4,8 +4,8 @@
 ### Etapas
 |Etapa | O que fazer     | Status |
 |:----:|:-----------------|:------:|
-|  01  | Reprodução do Jogo  |<img src="img/em_processo.png" alt="OK" width="60" height="60"/>|
-|  02  | Verificar os scripts |<img src="img/nao_iniciado.png" alt="0k" width="60" height="60"/>|
-|  03  | Testes de Funcionamento|<img src="img/nao_iniciado.png" alt="Ok" width="60" height="60"/>|
-|  04  | Melhorando o Jogo |<img src="img/nao_iniciado.png" alt="OK" width="60" height="60"/>|
-|  05  | Subir projeto final para github |<img src="img/nao_iniciado.png" alt="Ok" width="60" height="60"/>
+|  01  | Reprodução do Jogo  |<img src="img/ok.png" alt="OK" width="60" height="60"/>|
+|  02  | Verificar o código |<img src="img/ok.png" alt="0k" width="60" height="60"/>|
+|  03  | Testes de Funcionamento|<img src="img/ok.png" alt="Ok" width="60" height="60"/>|
+|  04  | Melhorando o Jogo |<img src="img/ok.png" alt="OK" width="60" height="60"/>|
+|  05  | Subir projeto final para github |<img src="img/ok.png" alt="Ok" width="60" height="60"/>

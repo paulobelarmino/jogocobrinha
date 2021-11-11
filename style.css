@@ -1,0 +1,32 @@
+#titulo {
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: darkolivegreen;
+    color: white;
+    margin-bottom: 25px; 
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#area{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#tabuleiro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+}
+
+#sua{
+    color: rgb(42, 2, 15);
+}

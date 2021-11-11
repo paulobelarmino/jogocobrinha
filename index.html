@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheep" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
     <title>Jogo da Cobrinha</title>
 </head> 
 <body>
-    <canvas id="snake"  width="512"  height="512"></canvas>    
+    <div id="titulo">
+        JOGO DA COBRINHA
+    </div>
+    <div id="area">
+        <div id="tabuleiro">
+            <canvas id="snake"  width="512"  height="512" style="border:2px solid #000000;"></canvas>
+        </div>
+        <div>
+            <h1 id ='record'> Record desta Sessão de Jogo: Score = 0</h1>
+            <Br><h1 id='sua'> Sua Pontuação:</h1>
+            <h2 id='ponto'>Pontuação = 0 </h2>
+            <h2 id='passo'>Passos dados = 0</h2> 
+            <h2 id='score'>Score do Jogo = 0</h2> 
+        </div>
+    </div>
+  
+    
 </body>
 </html>
