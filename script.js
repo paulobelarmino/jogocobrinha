@@ -9,7 +9,13 @@ let box = 32;
 let ponto = 0;
 let passos = 0;
 let score = 0;
-let record = parseInt(sessionStorage.getItem("recordSession"));
+let record = 0;
+if (sessionStorage.getItem("recordSession") == null){
+    sessionStorage.setItem("recordSession", 0);
+}else{
+    record = parseInt(sessionStorage.getItem("recordSession"));
+}
+
 
 txtRecord.innerText = "Record desta Sessão de Jogo: Score =" + sessionStorage.getItem("recordSession"); 
   
